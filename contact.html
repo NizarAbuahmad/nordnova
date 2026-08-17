@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Nordnova</title>
+<meta name="description" content="Start with a conversation — or an audit. Tell me about your company and what's not working.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html">NORD<b>NOVA</b></a>
+  <div class="nav-links">
+    <a href="services.html">Services</a>
+    <a href="work.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </div>
+  <a class="btn btn-sm" href="#form">Book a Marketing Audit</a>
+</nav>
+
+<main class="sec split split-even" style="padding-top:96px;padding-bottom:104px;gap:80px">
+
+  <div>
+    <h1>Start with a conversation — or an audit</h1>
+    <p class="lead" style="max-width:460px;margin-top:24px">Tell me a bit about your company and what's not working. I'll follow up personally.</p>
+
+    <div class="talk-first">
+      <span>Prefer to talk first?</span>
+      <a class="btn btn-sm btn-outline" href="https://calendly.com/nizar-abuahmad/new-meeting" target="_blank" rel="noopener">Book a call</a>
+    </div>
+
+    <dl class="contact-grid">
+      <div><dt>Email</dt><dd><a href="mailto:nizar.abuahmad@gmail.com">nizar.abuahmad@gmail.com</a></dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/nizar-abu-ahmad">linkedin.com/in/nizar-abu-ahmad</a></dd></div>
+      <div><dt>Jordan</dt><dd><a href="tel:+962790615095">+962 790 615 095</a></dd></div>
+    </dl>
+
+    <svg viewBox="0 0 120 120" width="230" style="margin-top:44px;opacity:.7" aria-hidden="true">
+      <g stroke="rgba(124,58,237,0.45)" stroke-width="1.1" stroke-linecap="round">
+        <circle cx="60" cy="60" r="3" fill="rgba(124,58,237,0.45)" stroke="none"/>
+        <line x1="72" y1="60" x2="114" y2="60"/>
+        <line x1="72" y1="60" x2="92" y2="60" transform="rotate(22.5 60 60)"/>
+        <line x1="72" y1="60" x2="114" y2="60" transform="rotate(45 60 60)"/>
+        <line x1="72" y1="60" x2="92" y2="60" transform="rotate(67.5 60 60)"/>
+        <line x1="72" y1="60" x2="114" y2="60" transform="rotate(90 60 60)"/>
+        <line x1="72" y1="60" x2="92" y2="60" transform="rotate(112.5 60 60)"/>
+        <line x1="72" y1="60" x2="114" y2="60" transform="rotate(135 60 60)"/>
+        <line x1="72" y1="60" x2="92" y2="60" transform="rotate(157.5 60 60)"/>
+        <line x1="72" y1="60" x2="114" y2="60" transform="rotate(180 60 60)"/>
+        <line x1="72" y1="60" x2="92" y2="60" transform="rotate(202.5 60 60)"/>
+        <line x1="72" y1="60" x2="114" y2="60" transform="rotate(225 60 60)"/>
+        <line x1="72" y1="60" x2="92" y2="60" transform="rotate(247.5 60 60)"/>
+        <line x1="72" y1="60" x2="114" y2="60" transform="rotate(270 60 60)"/>
+        <line x1="72" y1="60" x2="92" y2="60" transform="rotate(292.5 60 60)"/>
+        <line x1="72" y1="60" x2="114" y2="60" transform="rotate(315 60 60)"/>
+        <line x1="72" y1="60" x2="92" y2="60" transform="rotate(337.5 60 60)"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- FormSubmit relays to the address in the action — no account or API key.
+       It stays dormant until the first submission is confirmed by email.
+       To move to Formspree/Basin/Netlify Forms, change the action and the fetch URL below. -->
+  <form class="form" id="form" action="https://formsubmit.co/nizar.abuahmad@gmail.com" method="POST">
+    <label>Name<input type="text" name="name" placeholder="Your name" required></label>
+    <label>Company<input type="text" name="company" placeholder="Company name"></label>
+    <label>Email<input type="email" name="email" placeholder="you@company.com" required></label>
+    <label>What do you need help with?
+      <select name="need">
+        <option>Marketing Audit</option>
+        <option>Fractional Marketing Head</option>
+        <option>Special Project</option>
+        <option>Marketing Support</option>
+        <option>Hiring / Procurement</option>
+        <option>Not sure yet</option>
+      </select>
+    </label>
+    <label>A bit about your situation<textarea name="message" placeholder="What's not working right now?"></textarea></label>
+    <input type="hidden" name="_subject" value="New enquiry from nordnova.com">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <button class="btn" type="submit">Send</button>
+    <p class="toast" hidden>Thanks — I'll follow up personally.</p>
+    <p class="toast toast-error" hidden>Couldn't send. Email <a href="mailto:nizar.abuahmad@gmail.com">nizar.abuahmad@gmail.com</a> instead.</p>
+  </form>
+
+</main>
+
+<script>
+// Submit in place so the design's success toast can replace the button, per the
+// contact view in "Nordnova Website.dc.html". Without JS the form posts normally.
+document.getElementById('form').addEventListener('submit', async (e) => {
+  const form = e.target;
+  e.preventDefault();
+  const btn = form.querySelector('button');
+  const [ok, fail] = form.querySelectorAll('.toast');
+  btn.disabled = true;
+  fail.hidden = true;
+  try {
+    const res = await fetch(form.action.replace('/formsubmit.co/', '/formsubmit.co/ajax/'), {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if (!res.ok) throw new Error(res.status);
+    form.reset();
+    btn.hidden = true;
+    ok.hidden = false;
+  } catch {
+    fail.hidden = false;
+    btn.disabled = false;
+  }
+});
+</script>
+
+<footer>
+  <span class="brand">NORD<b>NOVA</b></span>
+  <span>Nordnova — Senior marketing leadership, on demand.</span>
+  <span>nordnova.com</span>
+</footer>
+
+</body>
+</html>
