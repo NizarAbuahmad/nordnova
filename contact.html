@@ -106,8 +106,12 @@ document.getElementById('form').addEventListener('submit', async (e) => {
       body: new FormData(form)
     });
     if (!res.ok) throw new Error(res.status);
+    // FormSubmit answers 200 even when it only queued an activation email, so
+    // check the body — otherwise an undelivered enquiry still reads as sent.
+    const data = await res.json().catch(() => null);
+    if (data && String(data.success).toLowerCase() === 'false') throw new Error(data.message);
     form.reset();
-    btn.hidden = true;
+    form.classList.add('sent');
     ok.hidden = false;
   } catch {
     fail.hidden = false;

@@ -332,6 +332,8 @@ a.tile:hover, a.card:hover { transform: translateY(-4px); border-color: var(--no
   color: var(--fg-1);
 }
 .toast[hidden] { display: none; } /* author display:flex would otherwise beat the UA [hidden] rule */
+.form.sent > :not(.toast) { display: none; } /* on success the toast replaces the whole form */
+.form.sent { justify-content: center; min-height: 220px; }
 .toast::before { content: ""; flex: none; width: 6px; height: 24px; border-radius: 3px; background: var(--success); }
 .toast-error::before { background: var(--danger); }
 .toast a { color: var(--nova-lime); }
