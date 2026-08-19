@@ -45,7 +45,7 @@ p { margin: 0; }
 
 /* Grid tracks default to min-width:auto, so one wide child (a long select
    option, an unbreakable URL) can push a track past the viewport. */
-.split > *, .g2 > *, .g3 > *, .g4 > * { min-width: 0; }
+.split > *, .g2 > *, .g3 > *, .g4 > *, .svc-grid > * { min-width: 0; }
 
 .eyebrow {
   font-size: 11px;
@@ -175,37 +175,99 @@ footer .brand { font-size: 15px; color: var(--fg-2); }
   pointer-events: none;
 }
 
-/* ---------- trusted-by marquee ---------- */
+/* ---------- trusted-by logo ribbon ---------- */
 
 .marquee-band { padding: 34px 0 40px; }
-.marquee-band .eyebrow { padding: 0 var(--pad); margin-bottom: var(--sp-5); }
+.marquee-band .eyebrow { padding: 0 var(--pad); margin-bottom: var(--sp-4); }
+.marquee-band + .marquee-band { padding-top: 0; }
 .marquee-mask {
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
 }
 @keyframes nn-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-.marquee { display: flex; width: max-content; animation: nn-marquee 34s linear infinite; }
-.marquee:hover { animation-play-state: paused; }
-.marquee span {
-  flex: none;
-  height: 56px;
-  margin: 0 10px;
-  padding: 0 28px;
+.marquee { display: flex; width: max-content; animation: nn-marquee 46s linear infinite; }
+.marquee.slow { animation-duration: 60s; }
+.marquee:hover, .marquee:focus-within { animation-play-state: paused; }
+
+.logo-row {
   display: flex;
   align-items: center;
-  border: 1px solid var(--line-1);
-  border-radius: var(--sp-2);
+  gap: 18px;
+  margin: 0;
+  padding: 0 9px;
+  list-style: none;
+}
+/* Uniform chip height keeps mixed logo shapes optically level on the dark page. */
+.logo-chip {
+  flex: none;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: 12px;
+  background: var(--nova-white);
+}
+.logo-chip img { max-height: 38px; max-width: 168px; object-fit: contain; display: block; }
+/* Wordmark fallback for clients with no logo file yet. */
+.logo-chip.wordmark {
   background: var(--surface-card);
+  border: 1px solid var(--line-1);
   font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--text-sm);
-  letter-spacing: 0.1em;
-  color: var(--fg-3);
+  letter-spacing: 0.08em;
+  color: var(--fg-2);
   white-space: nowrap;
 }
 @media (prefers-reduced-motion: reduce) {
-  .marquee { animation: none; flex-wrap: wrap; width: auto; padding: 0 var(--pad); gap: 10px 0; }
+  .marquee { animation: none; flex-wrap: wrap; width: auto; justify-content: center; padding: 0 var(--pad); }
+  .marquee > [aria-hidden="true"] { display: none; } /* drop the loop duplicate when static */
+  .logo-row { flex-wrap: wrap; justify-content: center; gap: 12px; }
+}
+
+/* ---------- homepage credibility block ---------- */
+
+.creds { display: flex; align-items: center; gap: var(--sp-5); flex-wrap: wrap; }
+.creds img {
+  flex: none;
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 1px solid var(--line-1);
+}
+.creds .name { font-family: var(--font-display); font-weight: 800; font-size: 21px; }
+.creds .role { font-size: 15.5px; color: var(--fg-2); margin-top: 4px; }
+.creds .practice { font-size: 13px; color: var(--fg-3); margin-top: 10px; }
+
+/* ---------- flat services grid ---------- */
+
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.svc { display: flex; flex-direction: column; gap: var(--sp-3); }
+.svc h3 { font-size: 22px; }
+.svc .desc { font-size: 15.5px; color: var(--fg-2); line-height: 1.6; }
+.svc dl { display: flex; flex-direction: column; gap: 14px; margin: var(--sp-2) 0 0; }
+.svc dt { font-size: 11px; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); margin-bottom: 6px; }
+.svc dd { margin: 0; font-size: 15px; color: var(--fg-2); line-height: 1.6; }
+.svc .more { margin-top: auto; padding-top: var(--sp-2); }
+.note-inline {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border: 1px dashed var(--line-1);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  color: var(--fg-2);
+}
+.release-valve {
+  margin-top: 28px;
+  padding-inline-start: 16px;
+  border-inline-start: 2px solid var(--nova-lime);
+  font-size: 17px;
+  color: var(--fg-2);
+  line-height: 1.7;
+  max-width: 760px;
 }
 
 /* ---------- cards ---------- */
@@ -419,7 +481,7 @@ a.tile:hover, a.card:hover { transform: translateY(-4px); border-color: var(--no
 @media (max-width: 1000px) {
   :root { --pad: 28px; }
   .sec, .case-sec { padding-left: var(--pad); padding-right: var(--pad); }
-  .split, .split-bio, .g2, .g3, .g4, .tier, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .split, .split-bio, .g2, .g3, .g4, .svc-grid, .tier, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
   .tier { gap: 24px; }
   .split-case, .split-label { gap: 16px; }
   .hero { padding: 72px var(--pad) 64px; }
