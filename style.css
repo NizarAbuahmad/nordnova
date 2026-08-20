@@ -685,3 +685,23 @@ a.tile:hover, a.card:hover { transform: translateY(-4px); border-color: var(--no
   .schedule { grid-template-columns: auto 1fr; gap: var(--sp-4); padding: 22px; }
   .schedule .btn { grid-column: 1 / -1; justify-content: center; }
 }
+
+/* ---------- deliverable outline ---------- */
+
+.deliverable { counter-reset: step; display: grid; gap: 0; margin-top: 30px; }
+.deliverable > div {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: var(--sp-4);
+  padding: 20px 0;
+  border-top: 1px solid var(--line-2);
+}
+.deliverable > div:last-child { border-bottom: 1px solid var(--line-2); }
+.deliverable > div::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--font-display); font-weight: 800; font-size: var(--text-sm);
+  color: var(--nova-violet); padding-top: 3px;
+}
+.deliverable b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+.deliverable span { font-size: 16px; color: var(--fg-2); line-height: 1.6; }
