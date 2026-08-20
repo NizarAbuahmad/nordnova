@@ -642,3 +642,46 @@ a.tile:hover, a.card:hover { transform: translateY(-4px); border-color: var(--no
   .timeline li { grid-template-columns: 24px 1fr; }
   .timeline .when { grid-column: 1 / -1; padding-top: 0; }
 }
+
+/* ---------- schedule-a-call card ---------- */
+
+.schedule {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--sp-5);
+  margin-top: 40px;
+  padding: 26px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  box-shadow: var(--shadow-card);
+  /* violet wash so it reads as an offer, not another bordered box */
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(124, 58, 237, 0.20), transparent 60%),
+    var(--surface-card);
+  transition: border-color var(--dur-med) var(--ease-nova), transform var(--dur-med) var(--ease-nova);
+}
+.schedule:hover { border-color: var(--nova-lime); transform: translateY(-2px); }
+.schedule .ico-well {
+  width: 52px; height: 52px;
+  background: rgba(124, 58, 237, 0.22);
+  border-color: rgba(124, 58, 237, 0.4);
+  color: var(--violet-300);
+}
+.schedule h2 { font-size: 21px; margin-bottom: 4px; }
+.schedule p { font-size: 15px; color: var(--fg-2); line-height: 1.55; max-width: 46ch; }
+.schedule .when {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 10px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--nova-lime);
+}
+.schedule .when::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--nova-lime); box-shadow: 0 0 0 3px rgba(184, 245, 0, 0.18);
+}
+
+@media (max-width: 1000px) {
+  .schedule { grid-template-columns: auto 1fr; gap: var(--sp-4); padding: 22px; }
+  .schedule .btn { grid-column: 1 / -1; justify-content: center; }
+}

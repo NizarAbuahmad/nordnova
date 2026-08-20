@@ -1,2 +1,5 @@
 .DS_Store
 Thumbs.db
+
+# staging area for photos under review - not published
+photos-review/
