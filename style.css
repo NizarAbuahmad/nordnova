@@ -567,3 +567,44 @@ a.tile:hover, a.card:hover { transform: translateY(-4px); border-color: var(--no
   .svc-nav { position: static; overflow-x: auto; flex-wrap: nowrap; }
   .svc-nav a { white-space: nowrap; }
 }
+
+/* ---------- case study results ---------- */
+
+.results {
+  padding: 44px var(--pad);
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--line-2);
+}
+.results .eyebrow { margin-bottom: var(--sp-5); }
+.results .stat b { font-size: 46px; line-height: 1.05; }
+.results .stat span { margin-top: 6px; }
+.results .stat.accent b { color: var(--nova-lime); }
+
+/* before/after comparison bar */
+.ba { display: flex; flex-direction: column; gap: 14px; max-width: 760px; margin-top: 26px; }
+.ba-row { display: grid; grid-template-columns: 210px 1fr 120px; gap: 16px; align-items: center; font-size: var(--text-sm); color: var(--fg-2); }
+.ba-track { height: 12px; border-radius: var(--radius-pill); background: var(--ink-4); overflow: hidden; }
+.ba-fill { height: 100%; border-radius: var(--radius-pill); }
+.ba-fill.was { background: var(--fg-3); }
+.ba-fill.now { background: var(--nova-lime); }
+.ba-val { font-family: var(--font-display); font-weight: 800; font-size: var(--text-md); color: var(--fg-1); text-align: end; }
+.ba-note { font-size: 13px; color: var(--fg-3); margin-top: 12px; }
+
+/* closing insight, lifted out of body copy */
+.pull {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.5;
+  color: var(--fg-1);
+  max-width: 900px;
+  padding-inline-start: 22px;
+  border-inline-start: 3px solid var(--nova-violet);
+}
+
+@media (max-width: 1000px) {
+  .results .stat b { font-size: 34px; }
+  .ba-row { grid-template-columns: 1fr 90px; }
+  .ba-row .ba-track { grid-column: 1 / -1; order: 3; }
+  .pull { font-size: 21px; }
+}
