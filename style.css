@@ -773,3 +773,53 @@ html { scroll-behavior: smooth; }
   .quote.featured p { font-size: 20px; }
   .quote.featured::before { font-size: 56px; }
 }
+
+/* ---------- hero proof strip & fit block ---------- */
+
+/* Results, not credentials, immediately under the hero. Each links to the
+   case study it comes from so the claim is one click from its evidence. */
+.proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.proof a {
+  display: block;
+  padding: 24px 26px;
+  border-radius: 14px;
+  background: var(--surface-card);
+  border: 1px solid var(--line-1);
+  color: inherit;
+  transition: transform var(--dur-med) var(--ease-nova), border-color var(--dur-med);
+}
+.proof a:hover { transform: translateY(-3px); border-color: var(--nova-lime); color: inherit; }
+.proof b {
+  display: block;
+  font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: 1;
+  color: var(--nova-lime);
+}
+.proof span { display: block; margin-top: 10px; font-size: 15px; color: var(--fg-2); line-height: 1.5; }
+.proof .src { margin-top: 12px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-3); }
+
+.fit { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.fit ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.fit li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: 16.5px; color: var(--fg-2); line-height: 1.6; }
+.fit li::before { font-family: var(--font-display); font-weight: 800; font-size: 15px; line-height: 1.6; }
+.fit .yes li::before { content: "✓"; color: var(--nova-lime); }
+.fit .no li::before { content: "✕"; color: var(--fg-3); }
+.fit h3 { font-size: 19px; margin-bottom: 18px; }
+
+/* The audit reads as the front door without hiding the other six */
+.front-door { display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center; padding: 38px; }
+.front-door .flag {
+  display: inline-block; margin-bottom: 14px; padding: 5px 14px;
+  border-radius: var(--radius-pill); background: var(--nova-lime); color: var(--on-accent-2);
+  font-size: 11px; font-weight: 700; letter-spacing: var(--track-caps); text-transform: uppercase;
+}
+.front-door h3 { font-size: 30px; margin-bottom: 14px; }
+.front-door .steps { display: flex; flex-direction: column; gap: 14px; }
+.front-door .steps div { display: grid; grid-template-columns: 26px 1fr; gap: 12px; font-size: 16px; color: var(--fg-2); line-height: 1.55; }
+.front-door .steps b { font-family: var(--font-display); font-weight: 800; color: var(--nova-violet); font-size: 14px; }
+
+@media (max-width: 1000px) {
+  .proof, .fit, .front-door { grid-template-columns: 1fr; gap: 20px; }
+  .front-door { padding: 26px; }
+  .proof b { font-size: 32px; }
+  .front-door h3 { font-size: 24px; }
+}
