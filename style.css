@@ -608,3 +608,37 @@ a.tile:hover, a.card:hover { transform: translateY(-4px); border-color: var(--no
   .ba-row .ba-track { grid-column: 1 / -1; order: 3; }
   .pull { font-size: 21px; }
 }
+
+/* ---------- career timeline ---------- */
+
+.timeline { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 0; }
+.timeline li {
+  display: grid;
+  grid-template-columns: 150px 24px 1fr;
+  gap: var(--sp-4);
+  padding: 20px 0;
+  border-top: 1px solid var(--line-2);
+}
+.timeline li:last-child { border-bottom: 1px solid var(--line-2); }
+.timeline .when { font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); color: var(--fg-3); padding-top: 2px; }
+/* the rail: a dot on a line, drawn with a pseudo-element so no extra markup */
+.timeline .rail { position: relative; }
+.timeline .rail::before {
+  content: ""; position: absolute; inset-inline-start: 11px; top: -21px; bottom: -21px;
+  width: 1px; background: var(--line-1);
+}
+.timeline li:first-child .rail::before { top: 8px; }
+.timeline li:last-child .rail::before { bottom: calc(100% - 8px); }
+.timeline .rail::after {
+  content: ""; position: absolute; inset-inline-start: 6px; top: 3px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--nova-black); border: 2px solid var(--nova-violet);
+}
+.timeline li.now .rail::after { background: var(--nova-lime); border-color: var(--nova-lime); }
+.timeline .what { font-size: 16.5px; color: var(--fg-2); line-height: 1.6; }
+.timeline .what b { color: var(--fg-1); font-weight: 600; display: block; margin-bottom: 2px; }
+
+@media (max-width: 1000px) {
+  .timeline li { grid-template-columns: 24px 1fr; }
+  .timeline .when { grid-column: 1 / -1; padding-top: 0; }
+}
