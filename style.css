@@ -705,3 +705,41 @@ a.tile:hover, a.card:hover { transform: translateY(-4px); border-color: var(--no
 }
 .deliverable b { display: block; font-family: var(--font-display); font-weight: 700; font-size: 18px; margin-bottom: 4px; }
 .deliverable span { font-size: 16px; color: var(--fg-2); line-height: 1.6; }
+
+/* ---------- accessibility & polish pass ---------- */
+
+/* WCAG 2.2: a visible, high-contrast focus indicator on every interactive element.
+   Lime reads well above 3:1 on the dark surfaces; violet is used on the paper bands. */
+:focus-visible {
+  outline: 2px solid var(--nova-lime);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.sec-paper :focus-visible { outline-color: var(--violet-600); }
+.btn:focus-visible { outline-offset: 4px; }
+
+/* WCAG 2.2 target size: pointer targets need at least 24x24 CSS px.
+   Nav and inline links were measuring 18-22px tall. */
+.nav-links a { padding: 6px 2px; }
+.contact-grid dd a, .back, .more, .visit { display: inline-block; min-height: 24px; padding-block: 4px; }
+.back { padding-inline: 2px; }
+
+/* Readable measure: body copy was running to ~84-89 characters. */
+.body, .release-valve, .deliverable span { max-width: 58ch; } /* ~70 characters in Manrope */
+/* these carried their own 820px cap, which beat the class rule */
+.case-sec .body, .bullets, .timeline .what, .case-sec .pull { max-width: 58ch; }
+.lead { max-width: min(640px, 68ch); }
+
+/* Short headings wrap more evenly instead of dropping a single word */
+h1, h2, .cta h2, .pull { text-wrap: balance; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
