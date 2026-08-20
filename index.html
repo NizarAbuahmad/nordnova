@@ -26,6 +26,45 @@
 </head>
 <body>
 
+<!-- Icon sprite. Stroke-based, 24x24, drawn to echo the Nordnova burst motif.
+     Referenced with <use href="#i-name">; stroke="currentColor" so each icon
+     inherits its context colour. Kept in-document so there is no extra request
+     and no cross-browser <use> quirks with external files. -->
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="i-audit" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.2 15.2 21 21"/><path d="M8 10.5h5M10.5 8v5"/>
+    </g>
+    <g id="i-digital" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 12.5l3-3 2.5 2.5L17 7.5"/>
+    </g>
+    <g id="i-strategy" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/>
+    </g>
+    <g id="i-gtm" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5.5 14.5c3-8 7.5-11 13-11 .5 5.5-2.5 10-10.5 13"/><path d="M8 17 6.5 21 3 19.5"/><circle cx="14" cy="9" r="1.6"/>
+    </g>
+    <g id="i-fractional" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16.5 6.5 18 8l3-3"/>
+    </g>
+    <g id="i-ai-build" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="7" y="7" width="10" height="10" rx="2.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>
+    </g>
+    <g id="i-ai-train" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4 2.5 8.5 12 13l9.5-4.5z"/><path d="M6.5 11v5c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-5"/><path d="M21.5 8.5V15"/>
+    </g>
+    <g id="i-diagnose" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 13h3.5l2-5 3 10 2.5-7 1.5 2H21"/>
+    </g>
+    <g id="i-direct" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21V6"/><path d="m6.5 11.5 5.5-6 5.5 6"/><circle cx="12" cy="3" r="1.3"/>
+    </g>
+    <g id="i-deliver" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/>
+    </g>
+  </defs>
+</svg>
+
 <nav class="nav">
   <a class="brand" href="index.html">NORD<b>NOVA</b></a>
   <div class="nav-links">
@@ -175,37 +214,37 @@
   <p class="body" style="margin-bottom:34px;max-width:760px">Seven services, equal weight. Book any of them directly — there's no ladder to climb first.</p>
   <div class="svc-grid">
     <a class="card svc" href="services.html#marketing-audit">
-      <h3>Marketing Audit</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-audit"/></svg></span><h3>Marketing Audit</h3></div>
       <p class="desc">A clear-eyed diagnosis of your entire marketing function.</p>
       <span class="more">See details →</span>
     </a>
     <a class="card svc" href="services.html#digital-audit">
-      <h3>Digital &amp; Social Media Audit</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-digital"/></svg></span><h3>Digital &amp; Social Media Audit</h3></div>
       <p class="desc">The focused version, when it's your online presence.</p>
       <span class="more">See details →</span>
     </a>
     <a class="card svc" href="services.html#social-strategy">
-      <h3>Social &amp; Digital Strategy</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-strategy"/></svg></span><h3>Social &amp; Digital Strategy</h3></div>
       <p class="desc">The plan that turns findings into a system.</p>
       <span class="more">See details →</span>
     </a>
     <a class="card svc" href="services.html#gtm">
-      <h3>Go-To-Market (GTM)</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gtm"/></svg></span><h3>Go-To-Market (GTM)</h3></div>
       <p class="desc">Launch strategy for products, services and market entries.</p>
       <span class="more">See details →</span>
     </a>
     <a class="card svc" href="services.html#fractional">
-      <h3>Fractional Marketing Head</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fractional"/></svg></span><h3>Fractional Marketing Head</h3></div>
       <p class="desc">Senior marketing leadership, embedded, without the full-time hire.</p>
       <span class="more">See details →</span>
     </a>
     <a class="card svc" href="services.html#ai-implementation">
-      <h3>AI Implementation</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ai-build"/></svg></span><h3>AI Implementation</h3></div>
       <p class="desc">Install the AI-first way of working inside your business.</p>
       <span class="more">See details →</span>
     </a>
     <a class="card svc" href="services.html#ai-training">
-      <h3>AI Training for Founders &amp; Solo Marketers</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ai-train"/></svg></span><h3>AI Training for Founders &amp; Solo Marketers</h3></div>
       <p class="desc">Run marketing like a full team, solo.</p>
       <span class="more">See details →</span>
     </a>
@@ -217,24 +256,24 @@
   <div class="g3">
     <div class="step">
       <div class="num">01</div>
-      <h3>Diagnose</h3>
+      <div class="head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-diagnose"/></svg></span><h3>Diagnose</h3></div>
       <p>I assess your current marketing, honestly and quickly — what's working, what's wasting money, what's missing.</p>
     </div>
     <div class="step">
       <div class="num">02</div>
-      <h3>Direct</h3>
+      <div class="head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-direct"/></svg></span><h3>Direct</h3></div>
       <p>I set the strategy and the priorities, then agree the scope and how we work together.</p>
     </div>
     <div class="step">
       <div class="num">03</div>
-      <h3>Deliver</h3>
+      <div class="head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-deliver"/></svg></span><h3>Deliver</h3></div>
       <p>I run point on execution, and bring in specialists where the work needs them — as much or as little as you need.</p>
     </div>
   </div>
   <p class="release-valve">Most engagements start with a diagnosis — but if you already know what you need, we start there. You don't have to buy the audit first.</p>
 </section>
 
-<section class="stats sec-t sec-b g4">
+<section class="stats sec-paper g4">
   <div class="stat">
     <b>18 Years</b><span>Of experience</span>
     <svg width="180" height="32" viewBox="0 0 180 32" aria-hidden="true">

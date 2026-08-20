@@ -25,6 +25,45 @@
 </head>
 <body>
 
+<!-- Icon sprite. Stroke-based, 24x24, drawn to echo the Nordnova burst motif.
+     Referenced with <use href="#i-name">; stroke="currentColor" so each icon
+     inherits its context colour. Kept in-document so there is no extra request
+     and no cross-browser <use> quirks with external files. -->
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="i-audit" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.2 15.2 21 21"/><path d="M8 10.5h5M10.5 8v5"/>
+    </g>
+    <g id="i-digital" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 12.5l3-3 2.5 2.5L17 7.5"/>
+    </g>
+    <g id="i-strategy" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/>
+    </g>
+    <g id="i-gtm" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5.5 14.5c3-8 7.5-11 13-11 .5 5.5-2.5 10-10.5 13"/><path d="M8 17 6.5 21 3 19.5"/><circle cx="14" cy="9" r="1.6"/>
+    </g>
+    <g id="i-fractional" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16.5 6.5 18 8l3-3"/>
+    </g>
+    <g id="i-ai-build" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="7" y="7" width="10" height="10" rx="2.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>
+    </g>
+    <g id="i-ai-train" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4 2.5 8.5 12 13l9.5-4.5z"/><path d="M6.5 11v5c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-5"/><path d="M21.5 8.5V15"/>
+    </g>
+    <g id="i-diagnose" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 13h3.5l2-5 3 10 2.5-7 1.5 2H21"/>
+    </g>
+    <g id="i-direct" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21V6"/><path d="m6.5 11.5 5.5-6 5.5 6"/><circle cx="12" cy="3" r="1.3"/>
+    </g>
+    <g id="i-deliver" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/>
+    </g>
+  </defs>
+</svg>
+
 <nav class="nav">
   <a class="brand" href="index.html">NORD<b>NOVA</b></a>
   <div class="nav-links">
@@ -52,41 +91,56 @@
   <div class="g3">
     <div class="step">
       <div class="num">٠١</div>
-      <h3>التشخيص</h3>
+      <div class="head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-diagnose"/></svg></span><h3>التشخيص</h3></div>
       <p>أقيّم ما ينجح، وما يهدر المال، وما هو مفقود.</p>
     </div>
     <div class="step">
       <div class="num">٠٢</div>
-      <h3>التوجيه</h3>
+      <div class="head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-direct"/></svg></span><h3>التوجيه</h3></div>
       <p>أضع الاستراتيجية والأولويات، ثم نتفق على النطاق وطريقة عملنا معاً.</p>
     </div>
     <div class="step">
       <div class="num">٠٣</div>
-      <h3>التنفيذ</h3>
+      <div class="head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-deliver"/></svg></span><h3>التنفيذ</h3></div>
       <p>أتولّى قيادة التنفيذ، وأستعين بمتخصصين حيثما يتطلب العمل ذلك.</p>
     </div>
   </div>
   <p class="release-valve">معظم التعاونات تبدأ بتشخيص — لكن إن كنت تعرف ما تحتاجه بالفعل، نبدأ من هناك مباشرة. لست مضطراً لشراء التدقيق أولاً.</p>
 </section>
 
+<nav class="svc-nav" aria-label="انتقل إلى خدمة">
+  <a href="#marketing-audit">التدقيق التسويقي</a>
+  <a href="#digital-audit">تدقيق رقمي واجتماعي</a>
+  <a href="#social-strategy">استراتيجية رقمية</a>
+  <a href="#gtm">دخول السوق</a>
+  <a href="#fractional">مدير تسويق جزئي</a>
+  <a href="#ai-implementation">تطبيق الذكاء الاصطناعي</a>
+  <a href="#ai-training">تدريب على الذكاء الاصطناعي</a>
+</nav>
+
 <section class="sec sec-t">
   <h2 style="margin-bottom:34px">ماذا أقدّم</h2>
   <div class="svc-grid">
 
-    <article class="card svc" id="marketing-audit">
-      <h3>التدقيق التسويقي</h3>
-      <p class="desc">تشخيص صريح لوظيفة التسويق لديك بكاملها.</p>
-      <p class="note">نطاق محدد ومدة محددة — عادة 2–3 أسابيع</p>
-      <dl>
+    <article class="card svc featured" id="marketing-audit">
+      <div class="svc-body">
+        <div>
+          <span class="flag">معظم العملاء يبدأون هنا</span>
+          <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-audit"/></svg></span><h3>التدقيق التسويقي</h3></div>
+          <p class="desc">تشخيص صريح لوظيفة التسويق لديك بكاملها.</p>
+          <p class="note">نطاق محدد ومدة محددة — عادة 2–3 أسابيع</p>
+          <a class="more" href="contact.html">احجز هذه الخدمة ←</a>
+        </div>
+        <dl>
         <div><dt>ما هو</dt><dd>مراجعة منهجية تغطي الاستراتيجية والفريق والقنوات والميزانية والنتائج — ما ينجح، وما يهدر المال، وما هو مفقود.</dd></div>
         <div><dt>لمن</dt><dd>للقادة الذين يشعرون أن التسويق دون المستوى دون أن يعرفوا السبب بدقة، أو الراغبين في قراءة مستقلة قبل استثمار إضافي.</dd></div>
         <div><dt>ماذا تحصل عليه</dt><dd>تقرير مرتّب حسب الأولوية، بمكاسب سريعة وخطة عمل لـ 90 يوماً تبقى ملكك — سواء عملنا معاً بعدها أم لا.</dd></div>
       </dl>
-      <a class="more" href="contact.html">احجز هذه الخدمة ←</a>
+      </div>
     </article>
 
     <article class="card svc" id="digital-audit">
-      <h3>تدقيق رقمي ووسائل تواصل</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-digital"/></svg></span><h3>تدقيق رقمي ووسائل تواصل</h3></div>
       <p class="desc">النسخة المركّزة، حين تكون المشكلة في حضورك الرقمي.</p>
       <dl>
         <div><dt>ما هو</dt><dd>مراجعة قناة بقناة للأداء المدفوع والعضوي عبر ميتا وجوجل وتيك توك ولينكدإن، إضافة إلى المحتوى ومسار التحويل والتتبّع والإنفاق.</dd></div>
@@ -97,7 +151,7 @@
     </article>
 
     <article class="card svc" id="social-strategy">
-      <h3>استراتيجية رقمية واجتماعية</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-strategy"/></svg></span><h3>استراتيجية رقمية واجتماعية</h3></div>
       <p class="desc">الخطة التي تحوّل النتائج إلى نظام عمل.</p>
       <dl>
         <div><dt>ما هو</dt><dd>استراتيجية القنوات، ومحرّك المحتوى، وخارطة الإعلانات المدفوعة، ومؤشرات الأداء التي تحاسِب عليها.</dd></div>
@@ -108,7 +162,7 @@
     </article>
 
     <article class="card svc" id="gtm">
-      <h3>خطة دخول السوق (GTM)</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gtm"/></svg></span><h3>خطة دخول السوق (GTM)</h3></div>
       <p class="desc">استراتيجية إطلاق للمنتجات والخدمات ودخول الأسواق.</p>
       <dl>
         <div><dt>ما هو</dt><dd>تحديد الموقع التنافسي، وتعريف العميل المثالي، والتسعير، والقنوات، وخطة إطلاق على مراحل لمنتج جديد أو لدخول سوق جديد.</dd></div>
@@ -119,7 +173,7 @@
     </article>
 
     <article class="card svc" id="fractional">
-      <h3>مدير تسويق جزئي</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fractional"/></svg></span><h3>مدير تسويق جزئي</h3></div>
       <p class="desc">قيادة تسويقية أولى، مدمجة في فريقك، دون تعيين بدوام كامل.</p>
       <dl>
         <div><dt>ما هو</dt><dd>أتولّى دور مدير التسويق بالإنابة — أضع الاتجاه، وأبني الفريق والأنظمة، وأتحمّل مسؤولية التنفيذ — بدوام جزئي ومستمر.</dd></div>
@@ -130,7 +184,7 @@
     </article>
 
     <article class="card svc" id="ai-implementation">
-      <h3>تطبيق الذكاء الاصطناعي</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ai-build"/></svg></span><h3>تطبيق الذكاء الاصطناعي</h3></div>
       <p class="desc">تركيب طريقة العمل القائمة على الذكاء الاصطناعي داخل شركتك.</p>
       <dl>
         <div><dt>ما هو</dt><dd>بناء نموذج تشغيل تسويقي يضع الذكاء الاصطناعي أولاً — أدوات، ومسارات عمل، وأنظمة أوامر، وإجراءات تشغيل تتيح لفريق صغير إنتاج مخرجات فريق كامل.</dd></div>
@@ -141,7 +195,7 @@
     </article>
 
     <article class="card svc" id="ai-training">
-      <h3>تدريب المؤسسين والمسوّقين الأفراد على الذكاء الاصطناعي</h3>
+      <div class="svc-head"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ai-train"/></svg></span><h3>تدريب المؤسسين والمسوّقين الأفراد على الذكاء الاصطناعي</h3></div>
       <p class="desc">أدر التسويق كأنك فريق كامل، وأنت بمفردك.</p>
       <dl>
         <div><dt>ما هو</dt><dd>تدريب عملي على النموذج نفسه القائم على الذكاء الاصطناعي الذي تعمل به نوردنوفا، مبني حول طبيعة عملك.</dd></div>
@@ -156,7 +210,7 @@
   <p class="note-inline">يمكن إضافة تمكين الذكاء الاصطناعي إلى أي تعاون ضمن خدمة مدير التسويق الجزئي.</p>
 </section>
 
-<section class="sec sec-t split split-label" style="padding-top:60px;padding-bottom:92px">
+<section class="sec sec-paper split split-label" style="padding-top:72px;padding-bottom:88px">
   <p class="eyebrow" style="padding-top:6px">ملاحظة حول التسعير</p>
   <p style="font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1.5;max-width:820px">يُحدَّد نطاق كل تعاون بحسب العمل نفسه، لا وفق قائمة أسعار جاهزة. أخبرني بما تحاول إصلاحه، وأخبرك بما يتطلبه.</p>
 </section>
