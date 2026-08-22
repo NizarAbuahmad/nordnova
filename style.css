@@ -864,3 +864,254 @@ html { scroll-behavior: smooth; }
   .proof b { font-size: 32px; }
   .front-door h3 { font-size: 24px; }
 }
+
+/* =========================================================================
+   EXECUTIVE HOMEPAGE
+   Components for the personal-brand homepage. Everything here reuses the
+   existing tokens: same near-black surfaces, same lime, same radii. The one
+   addition is a champagne accent for "executive" moments (stat values,
+   experience eyebrows) so the page can signal seniority without turning the
+   lime brand colour into a gold one.
+   ========================================================================= */
+
+:root {
+  --champagne: #E0C89C;
+  --champagne-dim: rgba(224, 200, 156, 0.28);
+}
+
+/* ---------- hero ---------- */
+
+.hero-exec { display: grid; grid-template-columns: 1fr 380px; gap: 72px; align-items: center; }
+.hero-exec h1 { font-size: clamp(38px, 4.1vw, 60px); line-height: 1.06; letter-spacing: -0.02em; }
+.hero-exec .lead { margin: 26px 0 14px; max-width: 52ch; }
+.hero-exec .sub { font-size: 16px; color: var(--fg-3); max-width: 52ch; }
+.hero-exec .btns { margin-top: 38px; }
+.hero-eyebrow { color: var(--champagne); }
+
+/* The portrait is the personal-brand anchor, so it gets real presence: a soft
+   champagne rim and a violet bloom behind it rather than a plain avatar. */
+.hero-portrait { position: relative; justify-self: end; }
+.hero-portrait img {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 380px; aspect-ratio: 4 / 5;
+  object-fit: cover; object-position: center 18%;
+  border-radius: 20px;
+  border: 1px solid var(--champagne-dim);
+}
+.hero-portrait::after {
+  content: ""; position: absolute; inset: -14% -10% -6% -14%;
+  background: radial-gradient(60% 55% at 40% 35%, rgba(124, 58, 237, 0.30), transparent 70%);
+  filter: blur(10px);
+}
+.hero-portrait .tag {
+  position: absolute; z-index: 2; inset-inline-start: -22px; bottom: 26px;
+  padding: 12px 18px; border-radius: var(--radius-md);
+  background: var(--ink-2); border: 1px solid var(--line-1);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+.hero-portrait .tag b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 15px; }
+.hero-portrait .tag span { display: block; margin-top: 3px; font-size: 12px; color: var(--fg-3); }
+
+/* ---------- stat bar ---------- */
+
+.statbar {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-4);
+  padding: 30px 0;
+  border-top: 1px solid var(--line-1); border-bottom: 1px solid var(--line-1);
+}
+.statbar b {
+  display: block;
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(24px, 2.2vw, 32px); line-height: 1;
+  color: var(--champagne);
+  font-variant-numeric: tabular-nums;
+}
+.statbar span { display: block; margin-top: 9px; font-size: 13px; color: var(--fg-3); line-height: 1.45; }
+
+/* ---------- six proof cards ---------- */
+
+.proof6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.proof6 > * {
+  display: block; padding: 28px;
+  border-radius: 14px; background: var(--surface-card); border: 1px solid var(--line-1);
+  color: inherit;
+  transition: transform var(--dur-med) var(--ease-nova), border-color var(--dur-med);
+}
+a.proof6-card:hover { transform: translateY(-3px); border-color: var(--nova-lime); color: inherit; }
+.proof6 b {
+  display: block;
+  font-family: var(--font-display); font-weight: 800; font-size: 34px; line-height: 1;
+  color: var(--nova-lime);
+  font-variant-numeric: tabular-nums;
+}
+.proof6 .money { color: var(--champagne); }
+.proof6 p { margin: 12px 0 0; font-size: 14.5px; color: var(--fg-2); line-height: 1.55; }
+.proof6 .src { display: block; margin-top: 12px; font-size: 11.5px; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+
+/* ---------- editorial experience blocks ---------- */
+
+.xp-item {
+  display: grid; grid-template-columns: 260px 1fr; gap: 56px;
+  padding: 46px 0;
+  border-top: 1px solid var(--line-1);
+}
+.xp-item:last-child { border-bottom: 1px solid var(--line-1); }
+.xp-org { font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--champagne); }
+.xp-meta { margin-top: 10px; font-size: 13px; color: var(--fg-3); line-height: 1.5; }
+.xp-item h3 { font-size: clamp(22px, 2vw, 29px); line-height: 1.2; letter-spacing: -0.01em; }
+.xp-item .body { margin-top: 14px; }
+.xp-highlight {
+  display: inline-flex; align-items: baseline; gap: 9px;
+  margin-top: 20px; padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--champagne-dim); background: rgba(224, 200, 156, 0.06);
+}
+.xp-highlight b { font-family: var(--font-display); font-weight: 800; font-size: 16px; color: var(--champagne); }
+.xp-highlight span { font-size: 13px; color: var(--fg-2); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; list-style: none; padding: 0; }
+.tags li {
+  padding: 6px 13px; border-radius: var(--radius-pill);
+  border: 1px solid var(--line-1); background: var(--ink-3);
+  font-size: 12.5px; color: var(--fg-2);
+}
+
+/* A left-to-right sequence of stages. The arrows are decorative, so they are
+   drawn with ::before rather than typed into the markup, where a screen reader
+   would announce every one of them. */
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; margin-top: 22px; list-style: none; padding: 0; }
+.flow li {
+  position: relative;
+  padding: 7px 14px; border-radius: 8px;
+  background: var(--ink-3); border: 1px solid var(--line-1);
+  font-family: var(--font-display); font-weight: 600; font-size: 12.5px; color: var(--fg-1);
+}
+.flow li + li::before { content: "\2192"; position: absolute; inset-inline-start: -16px; color: var(--fg-3); font-size: 12px; }
+[dir="rtl"] .flow li + li::before { content: "\2190"; }
+
+/* ---------- both sides of the table ---------- */
+
+.sides { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.sides > div { padding: 34px 30px; border-radius: 14px; background: var(--surface-card); border: 1px solid var(--line-1); }
+.sides .step-label {
+  font-family: var(--font-display); font-weight: 800; font-size: 12px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--champagne);
+}
+.sides h3 { margin-top: 16px; font-size: 20px; }
+.sides p { margin-top: 12px; font-size: 15px; color: var(--fg-2); line-height: 1.6; }
+
+/* ---------- from idea to growth ---------- */
+
+.journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.journey > div {
+  padding: 32px 30px; border-radius: 14px;
+  background: var(--surface-card); border: 1px solid var(--line-1);
+}
+.journey h3 { font-family: var(--font-display); font-weight: 800; font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--nova-lime); }
+.journey .flow { margin-top: 18px; }
+.journey .flow li { font-size: 12px; }
+
+/* ---------- industries ---------- */
+
+.industries { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.industries li {
+  padding: 11px 20px; border-radius: var(--radius-pill);
+  border: 1px solid var(--line-1); background: var(--surface-card);
+  font-size: 14.5px; color: var(--fg-2);
+}
+
+/* ---------- about band ---------- */
+
+.about-band { display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: center; }
+.about-band img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 18%;
+  border-radius: 20px; border: 1px solid var(--champagne-dim);
+}
+
+/* ---------- insights ---------- */
+
+.insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.insights article {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 30px; border-radius: 14px;
+  background: var(--surface-card); border: 1px solid var(--line-1);
+}
+.insights .topic { font-size: 11.5px; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--champagne); }
+.insights h3 { font-size: 19px; line-height: 1.3; }
+.insights p { font-size: 14.5px; color: var(--fg-2); line-height: 1.6; }
+
+/* ---------- reveal on scroll ----------
+   Opacity and transform only, so nothing reflows. .is-in is added by the
+   observer in index.html. The :not() guard means that without JS the rule
+   never applies and every section stays visible. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal:not(.is-in) { opacity: 0; transform: translateY(14px); }
+  .reveal { transition: opacity 620ms var(--ease-nova), transform 620ms var(--ease-nova); }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1000px) {
+  .hero-exec { grid-template-columns: 1fr; gap: 40px; }
+  .hero-exec .btns { margin-top: 30px; }
+  .hero-portrait { justify-self: start; max-width: 300px; }
+  .hero-portrait .tag { inset-inline-start: auto; inset-inline-end: -12px; bottom: 18px; }
+  .statbar { grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); padding: 26px 0; }
+  .statbar > *:last-child { grid-column: 1 / -1; }
+  .proof6, .sides, .journey, .insights { grid-template-columns: 1fr; }
+  .xp-item { grid-template-columns: 1fr; gap: 20px; padding: 36px 0; }
+  .about-band { grid-template-columns: 1fr; gap: 30px; }
+  .about-band img { max-width: 240px; }
+}
+
+/* ---------- executive homepage: responsive corrections ----------
+   Five nav items no longer fit on one phone row, so the row wraps instead of
+   pushing the page sideways. Everything else here is density: the homepage has
+   thirteen sections, and collapsing every grid straight to one column made it
+   twenty screens tall on a phone. Two columns on tablet, one only below 620. */
+
+@media (max-width: 1000px) {
+  .nav-links { flex-wrap: wrap; gap: 12px 20px; }
+  .proof6, .sides, .journey, .insights { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .proof6, .sides, .journey, .insights { grid-template-columns: 1fr; }
+  .xp-item { padding: 28px 0; gap: 16px; }
+  .xp-item .body { margin-top: 10px; }
+  .tags { margin-top: 16px; gap: 6px; }
+  .tags li { padding: 5px 11px; font-size: 11.5px; }
+  .flow { margin-top: 16px; gap: 6px 20px; }
+  .flow li { padding: 6px 11px; font-size: 11.5px; }
+  .sides > div, .journey > div, .insights article { padding: 24px 22px; }
+  .sides h3 { margin-top: 12px; }
+  .industries li { padding: 9px 16px; font-size: 13.5px; }
+  .statbar { padding: 22px 0; }
+  .hero-portrait { max-width: 260px; }
+}
+
+/* The shared .g2/.g3 helpers drop straight to one column below 1000px, which is
+   right for a page of long cards but wastes a tablet on these short ones. */
+@media (max-width: 1000px) and (min-width: 621px) {
+  .g3.svc5, .g2.who4 { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+
+/* ---------- executive homepage: vertical rhythm ----------
+   Thirteen sections at 84px top and bottom spend nearly three phone screens on
+   padding alone. Desktop keeps the generous spacing the design depends on;
+   phones get a tighter rhythm. */
+
+.hero-sec { padding-top: 88px; padding-bottom: 64px; }
+.statbar-sec { padding-top: 0; padding-bottom: 64px; }
+.cta-sec { padding-top: 92px; padding-bottom: 92px; }
+
+@media (max-width: 620px) {
+  .sec { padding-top: 54px; padding-bottom: 54px; }
+  .hero-sec { padding-top: 46px; padding-bottom: 40px; }
+  .statbar-sec { padding-top: 0; padding-bottom: 40px; }
+  .cta-sec { padding-top: 62px; padding-bottom: 62px; }
+  /* The portrait already carries the hero; a second copy on a phone is two
+     more scrolls of the same face. */
+  .about-band img { display: none; }
+  .about-band { grid-template-columns: 1fr; }
+}
