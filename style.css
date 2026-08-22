@@ -240,7 +240,45 @@ footer .brand { font-size: 15px; color: var(--fg-2); }
 }
 .creds .name { font-family: var(--font-display); font-weight: 800; font-size: 21px; }
 .creds .role { font-size: 15.5px; color: var(--fg-2); margin-top: 4px; }
-.creds .practice { font-size: 13px; color: var(--fg-3); margin-top: 10px; }
+
+/* The lockup sits ABOVE the name so the relationship reads in the right order:
+   the practice first, then the person it belongs to. */
+.creds .practice { margin-bottom: 14px; }
+.creds .practice b {
+  display: block;
+  font-family: var(--font-display); font-weight: 800; font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--nova-lime);
+}
+.creds .practice span { display: block; margin-top: 3px; font-size: 13.5px; color: var(--fg-3); }
+
+/* Credibility facts. flex-basis:100% forces them onto their own row inside the
+   wrapping .creds flexbox, so they read as a strip under the identity rather
+   than a separate section competing with it. */
+.creds .facts {
+  flex: 1 0 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  margin: var(--sp-4) 0 0;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line-1);
+}
+.creds .facts b {
+  display: block;
+  font-family: var(--font-display); font-weight: 800; font-size: 19px; line-height: 1.1;
+}
+.creds .facts span { display: block; margin-top: 7px; font-size: 13.5px; color: var(--fg-3); line-height: 1.5; }
+/* Below the desktop breakpoint the four columns get too narrow for the sector
+   list, so each fact becomes a value/label row instead — same content, a third
+   of the height. */
+@media (max-width: 1000px) {
+  .creds .facts { grid-template-columns: 1fr; gap: 14px; }
+  .creds .facts li { display: grid; grid-template-columns: 108px 1fr; gap: 14px; align-items: baseline; }
+  .creds .facts b { font-size: 16px; }
+  .creds .facts span { margin-top: 0; }
+}
 
 /* ---------- flat services grid ---------- */
 
@@ -536,12 +574,15 @@ a.tile:hover, a.card:hover { transform: translateY(-4px); border-color: var(--no
 .svc.featured .svc-body { display: grid; grid-template-columns: 300px 1fr; gap: 44px; align-items: start; }
 .svc.featured h3 { font-size: 28px; }
 .svc.featured dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 0; }
-.svc.featured .flag {
+/* Outline by default, solid on the featured card — so a second flagged service
+   can be marked without competing with the audit for first read. */
+.svc .flag {
   display: inline-block; margin-bottom: 12px;
   padding: 4px 12px; border-radius: var(--radius-pill);
-  background: var(--nova-lime); color: var(--on-accent-2);
+  border: 1px solid var(--nova-lime); color: var(--nova-lime);
   font-size: 11px; font-weight: 700; letter-spacing: var(--track-caps); text-transform: uppercase;
 }
+.svc.featured .flag { background: var(--nova-lime); border-color: var(--nova-lime); color: var(--on-accent-2); }
 
 /* ---------- light surface band ----------
    The design system ships a paper palette that nothing used; one inverted band

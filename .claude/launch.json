@@ -4,8 +4,8 @@
     {
       "name": "nordnova",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "5555"],
-      "port": 5555
+      "runtimeArgs": ["-m", "http.server", "8899"],
+      "port": 8899
     }
   ]
 }
