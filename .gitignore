@@ -3,6 +3,3 @@ Thumbs.db
 
 # staging area for photos under review - not published
 photos-review/
-
-# local preview server config
-.claude/
