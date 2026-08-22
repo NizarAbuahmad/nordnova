@@ -894,8 +894,8 @@ html { scroll-behavior: smooth; }
 .hero-portrait { position: relative; justify-self: end; }
 .hero-portrait img {
   position: relative; z-index: 1;
-  width: 100%; max-width: 380px; aspect-ratio: 4 / 5;
-  object-fit: cover; object-position: center 18%;
+  width: 100%; max-width: 380px; height: auto; aspect-ratio: 4 / 5;
+  object-fit: cover; object-position: center top;
   border-radius: 20px;
   border: 1px solid var(--champagne-dim);
 }
@@ -1005,7 +1005,7 @@ html { scroll-behavior: smooth; }
 
 .about-band { display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: center; }
 .about-band img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 18%;
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top;
   border-radius: 20px; border: 1px solid var(--champagne-dim);
 }
 
@@ -1090,8 +1090,6 @@ html { scroll-behavior: smooth; }
   .hero-sec { padding-top: 46px; padding-bottom: 40px; }
   .statbar-sec { padding-top: 0; padding-bottom: 40px; }
   .cta-sec { padding-top: 62px; padding-bottom: 62px; }
-  /* The portrait already carries the hero; a second copy on a phone is two
-     more scrolls of the same face. */
-  .about-band img { display: none; }
   .about-band { grid-template-columns: 1fr; }
+  .about-band img { max-width: 200px; }
 }
