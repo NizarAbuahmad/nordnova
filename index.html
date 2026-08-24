@@ -175,7 +175,6 @@
   <div class="nav-links">
     <a href="work.html">Experience</a>
     <a href="services.html">What I Do</a>
-    <a href="#insights">Insights</a>
     <a href="contact.html">Contact</a>
   </div>
   <div class="nav-end">
@@ -424,7 +423,7 @@
 <!-- ============ WHERE I CAN MAKE THE BIGGEST DIFFERENCE ============ -->
 <section class="sec sec-t">
   <h2 style="margin-bottom:34px">Where I can make the biggest difference</h2>
-  <div class="g3 svc5" style="gap:18px">
+  <div class="g3 svc5 reveal" style="gap:18px">
     <div class="card" style="padding:30px">
       <div class="svc-head" style="margin-bottom:12px"><span class="ico-well"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fractional"/></svg></span><h3 style="font-size:20px">Strategic marketing leadership</h3></div>
       <p style="font-size:15px;color:var(--fg-2);line-height:1.6">Build the strategy, structure, team and operating model needed for growth.</p>
@@ -451,7 +450,7 @@
 <!-- ============ WHO I WORK WITH ============ -->
 <section class="sec sec-t">
   <h2 style="margin-bottom:34px">Who I work with</h2>
-  <div class="g2 who4" style="gap:18px">
+  <div class="g2 who4 reveal" style="gap:18px">
     <div class="card" style="padding:30px">
       <h3 style="font-size:20px;margin-bottom:10px">Founders</h3>
       <p style="font-size:15px;color:var(--fg-2);line-height:1.6">Launching, validating or scaling a business.</p>
@@ -490,7 +489,7 @@
 
 <!-- ============ ABOUT ============ -->
 <section class="sec sec-t">
-  <div class="about-band">
+  <div class="about-band reveal">
     <img src="assets/portrait-about.jpg" alt="Nizar Abu Ahmad" width="719" height="1086" loading="lazy">
     <div>
       <h2 style="margin-bottom:18px">About Nizar</h2>
@@ -509,9 +508,9 @@
      dressed up as posts: no dates, no read times, no links to pages that do
      not exist. Replace each card with a real article as it is written. -->
 <section class="sec sec-t" id="insights">
-  <h2 style="margin-bottom:10px">Thinking about growth</h2>
-  <p class="body" style="margin-bottom:34px">Three questions I keep coming back to with founders and leadership teams.</p>
-  <div class="insights">
+  <h2 style="margin-bottom:10px">How I think about growth</h2>
+  <p class="body" style="margin-bottom:34px">Three things I find myself saying in almost every first conversation.</p>
+  <div class="insights reveal">
     <article>
       <p class="topic">Strategy</p>
       <h3>Why strategy fails without execution</h3>
@@ -550,27 +549,66 @@
 </footer>
 
 <script>
-// Two small progressive enhancements: reveal sections as they scroll in, and
-// count the stat numbers up the first time they appear. Both are skipped
-// entirely when the visitor prefers reduced motion, and neither is required
-// for the page to be readable - the CSS leaves everything visible without JS.
+// Reveal sections as they scroll in, and count the stat numbers up the first
+// time they appear. Both are progressive enhancements: the hidden state lives
+// behind html.js-reveal, which is only added once this script is running, so
+// with scripting off every section simply renders visible.
+//
+// Reduced motion keeps the fade but skips the travel and the counting - gentler
+// rather than absent, which is the point of the setting.
 (() => {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (!('IntersectionObserver' in window)) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js-reveal');
+
+  // Liveness flag. The observer reports the initial state of everything it is
+  // given, intersecting or not, so in any working browser this flips true
+  // immediately. If it is still false later, the reveal machinery is not
+  // running and the blanket fallback below shows everything.
+  let alive = false;
 
   const io = new IntersectionObserver((entries) => {
+    alive = true;
     for (const e of entries) {
       if (!e.isIntersecting) continue;
       e.target.classList.add('is-in');
-      e.target.querySelectorAll('[data-count]').forEach(countUp);
+      if (!reduce) e.target.querySelectorAll('[data-count]').forEach(countUp);
       io.unobserve(e.target);
     }
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+  // threshold 0 rather than a ratio: a section taller than the viewport can
+  // never reach a 15% ratio, and would have stayed hidden forever.
+  }, { rootMargin: '0px 0px -80px 0px', threshold: 0 });
 
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-  // Animate to the number already in the markup, so the final rendered text is
-  // identical to what a visitor without JS sees.
+  // Safety net. Because the hidden state is applied by CSS, a callback that
+  // never arrives would leave content invisible - so correctness cannot depend
+  // on the observer alone. This sweep runs synchronously at parse time and
+  // again on scroll, uses no frame callbacks, and only reveals what is actually
+  // on screen, so the staggered effect still reads normally.
+  const sweep = () => {
+    for (const el of document.querySelectorAll('.reveal:not(.is-in)')) {
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight && r.bottom > 0) el.classList.add('is-in');
+    }
+  };
+  sweep();
+  // Only a real scroll counts as proof of life - the sweep above runs
+  // unconditionally, so setting the flag there would make the probe useless.
+  addEventListener('scroll', () => { alive = true; sweep(); }, { passive: true });
+  addEventListener('resize', sweep, { passive: true });
+
+  // Last resort. If neither the observer nor a scroll ever reported back, the
+  // page is somewhere that does not run this machinery - so drop the effect and
+  // show everything. Losing an animation is a nuisance; losing the content is
+  // not acceptable.
+  setTimeout(() => {
+    if (alive) return;
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-in'));
+  }, 1500);
+
+  // Animate toward the number already in the markup, so the final rendered
+  // text is identical to what a visitor without JS sees.
   function countUp(el) {
     const target = Number(el.dataset.count);
     if (!Number.isFinite(target)) return;
@@ -578,13 +616,11 @@
     const pre = el.dataset.prefix || '';
     const suf = el.dataset.suffix || '';
     const group = el.dataset.format === 'thousands';
-    const dur = 900;
     let t0;
     const tick = (now) => {
       t0 ??= now;
-      const p = Math.min(1, (now - t0) / dur);
-      const eased = 1 - Math.pow(1 - p, 3);
-      const v = Math.round(target * eased);
+      const p = Math.min(1, (now - t0) / 900);
+      const v = Math.round(target * (1 - Math.pow(1 - p, 3)));
       el.textContent = p < 1 ? pre + (group ? v.toLocaleString('en-US') : v) + suf : final;
       if (p < 1) requestAnimationFrame(tick);
     };

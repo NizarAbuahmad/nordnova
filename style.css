@@ -1030,21 +1030,33 @@ html { scroll-behavior: smooth; }
 .insights p { font-size: 14.5px; color: var(--fg-2); line-height: 1.6; }
 
 /* ---------- reveal on scroll ----------
-   Opacity and transform only, so nothing reflows. .is-in is added by the
-   observer in index.html. The :not() guard means that without JS the rule
-   never applies and every section stays visible.
+   The hidden state is gated on html.js-reveal, which the observer adds only
+   once it is actually running. With scripting off, or if the script throws,
+   the class never lands and nothing can be stuck invisible - the failure mode
+   is "no animation", never "no content".
 
-   The container stays put and its children stagger in, which reads as one
-   cascade rather than a slab of content sliding up. 55ms between items, capped
-   after the fifth so a ten-item list does not take half a second to finish. */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal > * { transition: opacity 420ms var(--ease-nova), transform 420ms var(--ease-nova); }
-  .reveal:not(.is-in) > * { opacity: 0; transform: translateY(10px); }
-  .reveal.is-in > *:nth-child(2) { transition-delay: 55ms; }
-  .reveal.is-in > *:nth-child(3) { transition-delay: 110ms; }
-  .reveal.is-in > *:nth-child(4) { transition-delay: 165ms; }
-  .reveal.is-in > *:nth-child(5) { transition-delay: 220ms; }
-  .reveal.is-in > *:nth-child(n+6) { transition-delay: 275ms; }
+   The container holds still and its children stagger in, which reads as one
+   cascade rather than a slab of content sliding up. */
+.js-reveal .reveal > * {
+  transition: opacity 460ms var(--ease-nova), transform 460ms var(--ease-nova);
+}
+.js-reveal .reveal:not(.is-in) > * { opacity: 0; transform: translateY(14px); }
+.js-reveal .reveal.is-in > *:nth-child(2) { transition-delay: 60ms; }
+.js-reveal .reveal.is-in > *:nth-child(3) { transition-delay: 120ms; }
+.js-reveal .reveal.is-in > *:nth-child(4) { transition-delay: 180ms; }
+.js-reveal .reveal.is-in > *:nth-child(5) { transition-delay: 240ms; }
+.js-reveal .reveal.is-in > *:nth-child(n+6) { transition-delay: 300ms; }
+
+/* Reduced motion keeps the fade and drops the travel - gentler, not absent.
+   Without this the blanket rule above (which kills every transition to 0.01ms)
+   means someone with Windows animation effects switched off sees nothing move
+   anywhere on the site. Higher specificity beats that rule regardless of order. */
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal:not(.is-in) > * { transform: none; }
+  .js-reveal .reveal > * {
+    transition-property: opacity !important;
+    transition-duration: 320ms !important;
+  }
 }
 
 /* Touch screens fire :hover on tap and leave it stuck until you tap elsewhere,
@@ -1118,4 +1130,10 @@ html { scroll-behavior: smooth; }
   .cta-sec { padding-top: 62px; padding-bottom: 62px; }
   .about-band { grid-template-columns: 1fr; }
   .about-band img { max-width: 200px; }
+}
+
+/* Printing never scrolls, so the observer never fires - force every revealed
+   section visible on paper. */
+@media print {
+  .js-reveal .reveal > * { opacity: 1 !important; transform: none !important; }
 }
