@@ -11,7 +11,12 @@
 <link rel="icon" href="favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0B0B0F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded here rather than through the design system's @import chain: that chain was
+     html -> style.css -> _ds/styles.css -> tokens/fonts.css -> Google, five requests deep
+     before a single glyph could be fetched. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>

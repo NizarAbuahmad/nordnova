@@ -28,7 +28,12 @@
 <link rel="icon" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#0B0B0F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded here rather than through the design system's @import chain: that chain was
+     html -> style.css -> _ds/styles.css -> tokens/fonts.css -> Google, five requests deep
+     before a single glyph could be fetched. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -263,7 +268,7 @@
 </section>
 
 <!-- ============ خبرات مختارة ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:8px">خبرات مختارة</h2>
   <p class="body" style="margin-bottom:10px">أربعة أمثلة تُظهر المدى &mdash; حجم مؤسسي، وعلامة إقليمية، وإدارة حملات، وبناء عمل من الصفر.</p>
 
@@ -329,7 +334,7 @@
 
     <article class="xp-item reveal">
       <div>
-        <p class="xp-org">Afro Baobab Cultural Hub</p>
+        <p class="xp-org"><span lang="en">Afro Baobab Cultural Hub</span></p>
         <p class="xp-meta">استشارات علامة ونمو<br>دبي، الإمارات</p>
       </div>
       <div>
@@ -373,7 +378,7 @@
 </section>
 
 <!-- ============ على جانبي الطاولة ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:10px">جلستُ على جانبي الطاولة</h2>
   <p class="body" style="margin-bottom:34px">تنفيذي في مؤسسة &larr; رائد أعمال &larr; مستشار نمو.</p>
   <div class="sides reveal">
@@ -396,7 +401,7 @@
 </section>
 
 <!-- ============ من الفكرة إلى النمو ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:10px">من الفكرة إلى النمو</h2>
   <p class="body" style="margin-bottom:34px">أعمل على الرحلة كاملة &mdash; لا على الحملة التسويقية وحدها.</p>
   <div class="journey reveal">
@@ -422,7 +427,7 @@
 </section>
 
 <!-- ============ أين أُحدث الفارق الأكبر ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:34px">أين أُحدث الفارق الأكبر</h2>
   <div class="g3 svc5 reveal" style="gap:18px">
     <div class="card" style="padding:30px">
@@ -449,7 +454,7 @@
 </section>
 
 <!-- ============ مع من أعمل ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:34px">مع من أعمل</h2>
   <div class="g2 who4 reveal" style="gap:18px">
     <div class="card" style="padding:30px">
@@ -472,7 +477,7 @@
 </section>
 
 <!-- ============ القطاعات ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:28px">عبر القطاعات. عبر الأسواق. عبر مراحل النمو.</h2>
   <ul class="industries reveal">
     <li>الدهانات والطلاءات</li>
@@ -489,7 +494,7 @@
 </section>
 
 <!-- ============ عن نزار ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <div class="about-band reveal">
     <img src="../assets/portrait-about.jpg" alt="نزار أبو أحمد" width="719" height="1086" loading="lazy">
     <div>
@@ -507,7 +512,7 @@
 <!-- ============ رؤى ============
      لا توجد مقالات منشورة بعد، لذا تُعرض هذه بوصفها محاور لا مقالات:
      بلا تواريخ، وبلا روابط إلى صفحات غير موجودة. -->
-<section class="sec sec-t" id="insights">
+<section class="sec sec-t reveal" id="insights">
   <h2 style="margin-bottom:10px">كيف أفكّر في النمو</h2>
   <p class="body" style="margin-bottom:34px">ثلاثة أمور أجدني أكرّرها في كل محادثة أولى تقريباً.</p>
   <div class="insights reveal">
@@ -545,7 +550,7 @@
 <footer>
   <span class="brand">NORD<b>NOVA</b></span>
   <span>نوردنوفا &mdash; ممارسة التسويق والنمو التي يقودها نزار أبو أحمد.</span>
-  <span>nordnova.com</span>
+  <span><span lang="en">nordnova.com</span></span>
 </footer>
 
 <script>

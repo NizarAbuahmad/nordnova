@@ -28,7 +28,12 @@
 <link rel="icon" href="favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0B0B0F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded here rather than through the design system's @import chain: that chain was
+     html -> style.css -> _ds/styles.css -> tokens/fonts.css -> Google, five requests deep
+     before a single glyph could be fetched. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -262,7 +267,7 @@
 </section>
 
 <!-- ============ SELECTED EXPERIENCE ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:8px">Selected experience</h2>
   <p class="body" style="margin-bottom:10px">Four engagements that show the range &mdash; corporate scale, regional brand, campaign management, and building a business from the ground up.</p>
 
@@ -372,7 +377,7 @@
 </section>
 
 <!-- ============ BOTH SIDES OF THE TABLE ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:10px">I&rsquo;ve been on both sides of the table</h2>
   <p class="body" style="margin-bottom:34px">Corporate executive &rarr; entrepreneur &rarr; growth advisor.</p>
   <div class="sides reveal">
@@ -395,7 +400,7 @@
 </section>
 
 <!-- ============ FROM IDEA TO GROWTH ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:10px">From idea to growth</h2>
   <p class="body" style="margin-bottom:34px">I work across the full journey &mdash; not just the marketing campaign.</p>
   <div class="journey reveal">
@@ -421,7 +426,7 @@
 </section>
 
 <!-- ============ WHERE I CAN MAKE THE BIGGEST DIFFERENCE ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:34px">Where I can make the biggest difference</h2>
   <div class="g3 svc5 reveal" style="gap:18px">
     <div class="card" style="padding:30px">
@@ -448,7 +453,7 @@
 </section>
 
 <!-- ============ WHO I WORK WITH ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:34px">Who I work with</h2>
   <div class="g2 who4 reveal" style="gap:18px">
     <div class="card" style="padding:30px">
@@ -471,7 +476,7 @@
 </section>
 
 <!-- ============ INDUSTRIES ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <h2 style="margin-bottom:28px">Across industries. Across markets. Across growth stages.</h2>
   <ul class="industries reveal">
     <li>Paints &amp; coatings</li>
@@ -488,7 +493,7 @@
 </section>
 
 <!-- ============ ABOUT ============ -->
-<section class="sec sec-t">
+<section class="sec sec-t reveal">
   <div class="about-band reveal">
     <img src="assets/portrait-about.jpg" alt="Nizar Abu Ahmad" width="719" height="1086" loading="lazy">
     <div>
@@ -507,7 +512,7 @@
      No articles are published yet, so these are stated as themes rather than
      dressed up as posts: no dates, no read times, no links to pages that do
      not exist. Replace each card with a real article as it is written. -->
-<section class="sec sec-t" id="insights">
+<section class="sec sec-t reveal" id="insights">
   <h2 style="margin-bottom:10px">How I think about growth</h2>
   <p class="body" style="margin-bottom:34px">Three things I find myself saying in almost every first conversation.</p>
   <div class="insights reveal">

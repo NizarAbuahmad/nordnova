@@ -28,7 +28,12 @@
 <link rel="icon" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#0B0B0F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded here rather than through the design system's @import chain: that chain was
+     html -> style.css -> _ds/styles.css -> tokens/fonts.css -> Google, five requests deep
+     before a single glyph could be fetched. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -130,7 +135,7 @@
   <div class="g2">
     <a class="card" href="case-afro-baobab.html">
       <p style="font-size:11.5px;text-transform:uppercase;color:var(--fg-3)">استراتيجية علامة وتسويق · دبي، الإمارات</p>
-      <h3 style="font-size:21px;margin-top:10px">Afro Baobab Cultural Hub</h3>
+      <h3 style="font-size:21px;margin-top:10px"><span lang="en">Afro Baobab Cultural Hub</span></h3>
     </a>
     <a class="card" href="case-iqra.html">
       <p style="font-size:11.5px;text-transform:uppercase;color:var(--fg-3)">مشروع تقنية تعليم ناشئ · الأردن والخليج</p>
@@ -144,7 +149,7 @@
 <footer>
   <span class="brand">NORD<b>NOVA</b></span>
   <span>نوردنوفا — ممارسة التسويق التي يقودها نزار أبو أحمد.</span>
-  <span>nordnova.com</span>
+  <span><span lang="en">nordnova.com</span></span>
 </footer>
 
 </body>

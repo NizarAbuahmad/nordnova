@@ -28,7 +28,12 @@
 <link rel="icon" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#0B0B0F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded here rather than through the design system's @import chain: that chain was
+     html -> style.css -> _ds/styles.css -> tokens/fonts.css -> Google, five requests deep
+     before a single glyph could be fetched. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -51,7 +56,7 @@
 <section class="sec" style="padding-top:70px;padding-bottom:40px">
   <a class="back" href="work.html">&larr; كل دراسات الحالة</a>
   <p class="eyebrow" style="margin-top:32px">مدير التسويق والاتصال · 2014–2021</p>
-  <h1 style="margin:20px 0;max-width:900px">Veolia Water Technologies</h1>
+  <h1 style="margin:20px 0;max-width:900px"><span lang="en">Veolia Water Technologies</span></h1>
   <p class="lead">سبع سنوات في قيادة التسويق الإقليمي عبر الخليج وبلاد الشام، مع إطلاق الهوية العالمية الجديدة لـVeolia بالعربية والإنجليزية في عشر دول.</p>
 </section>
 
@@ -111,7 +116,7 @@
 <footer>
   <span class="brand">NORD<b>NOVA</b></span>
   <span>نوردنوفا — ممارسة التسويق التي يقودها نزار أبو أحمد.</span>
-  <span>nordnova.com</span>
+  <span><span lang="en">nordnova.com</span></span>
 </footer>
 
 </body>

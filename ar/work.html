@@ -28,7 +28,12 @@
 <link rel="icon" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#0B0B0F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded here rather than through the design system's @import chain: that chain was
+     html -> style.css -> _ds/styles.css -> tokens/fonts.css -> Google, five requests deep
+     before a single glyph could be fetched. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -83,7 +88,7 @@
       <div class="case-art plate"><img src="../assets/logo-afro-baobab.png" alt="Afro Baobab Cultural Hub" loading="lazy" width="900" height="637"></div>
       <div class="pad">
         <p class="meta">استراتيجية علامة وتسويق · دبي، الإمارات</p>
-        <h3>Afro Baobab Cultural Hub</h3>
+        <h3><span lang="en">Afro Baobab Cultural Hub</span></h3>
         <p>تحديد الموقع التنافسي وخطة دخول السوق لوجهة ثقافية أفريقية غامرة ودائمة في القوز، قبل افتتاحها.</p>
         <span class="more">اقرأ دراسة الحالة ←</span>
       </div>
@@ -141,7 +146,7 @@
       <div class="case-art plate"><img src="../assets/logo-veolia.png" alt="Veolia Water Technologies" loading="lazy" width="900" height="221"></div>
       <div class="pad">
         <p class="meta">فعاليات وتوليد طلب · نطاق 10 دول</p>
-        <h3>Veolia Water Technologies</h3>
+        <h3><span lang="en">Veolia Water Technologies</span></h3>
         <p>التسويق والاتصال عبر نطاق يغطي 10 دول، مع إدارة الفعاليات الإقليمية من طرفها إلى طرفها بوصفها محرّك الطلب.</p>
         <span class="more">اقرأ دراسة الحالة &larr;</span>
       </div>
@@ -156,31 +161,31 @@
   <ol class="timeline">
     <li>
       <span class="when">2007–2009</span><span class="rail"></span>
-      <span class="what"><b>Ipsos</b>محلل أبحاث إعلامية — الجانب البياني من التسويق، قبل التسويق نفسه.</span>
+      <span class="what"><b><span lang="en">Ipsos</span></b>محلل أبحاث إعلامية — الجانب البياني من التسويق، قبل التسويق نفسه.</span>
     </li>
     <li>
       <span class="when">2009–2012</span><span class="rail"></span>
-      <span class="what"><b>Orange Jordan</b>محلل أول لذكاء الأعمال.</span>
+      <span class="what"><b><span lang="en">Orange Jordan</span></b>محلل أول لذكاء الأعمال.</span>
     </li>
     <li>
       <span class="when">2012–2014</span><span class="rail"></span>
-      <span class="what"><b>Jazeera Paints</b>نائب مدير الإعلان.</span>
+      <span class="what"><b><span lang="en">Jazeera Paints</span></b>نائب مدير الإعلان.</span>
     </li>
     <li>
       <span class="when">2014–2021</span><span class="rail"></span>
-      <span class="what"><b>Veolia Water Technologies</b>مدير التسويق والاتصال — إطلاق هوية إقليمية في عشر دول، بفريق من أربعة.</span>
+      <span class="what"><b><span lang="en">Veolia Water Technologies</span></b>مدير التسويق والاتصال — إطلاق هوية إقليمية في عشر دول، بفريق من أربعة.</span>
     </li>
     <li>
       <span class="when">2021–2022</span><span class="rail"></span>
-      <span class="what"><b>Darrzeh</b>شريك مؤسِّس ومسؤول النمو — تطبيق غسيل عند الطلب في دبي، من البحث حتى الإطلاق.</span>
+      <span class="what"><b><span lang="en">Darrzeh</span></b>شريك مؤسِّس ومسؤول النمو — تطبيق غسيل عند الطلب في دبي، من البحث حتى الإطلاق.</span>
     </li>
     <li>
       <span class="when">2022–2024</span><span class="rail"></span>
-      <span class="what"><b>National Paints</b>مدير التسويق للشرق الأوسط — إعادة بناء الوظيفة من الصفر، بفريق من ستة.</span>
+      <span class="what"><b><span lang="en">National Paints</span></b>مدير التسويق للشرق الأوسط — إعادة بناء الوظيفة من الصفر، بفريق من ستة.</span>
     </li>
     <li>
       <span class="when">2024–الآن</span><span class="rail"></span>
-      <span class="what"><b>Monroo</b>شريك مؤسِّس ومسؤول التسويق — سوق للمواهب الإبداعية في المنطقة.</span>
+      <span class="what"><b><span lang="en">Monroo</span></b>شريك مؤسِّس ومسؤول التسويق — سوق للمواهب الإبداعية في المنطقة.</span>
     </li>
     <li class="now">
       <span class="when">الآن</span><span class="rail"></span>
@@ -199,7 +204,7 @@
 <footer>
   <span class="brand">NORD<b>NOVA</b></span>
   <span>نوردنوفا — ممارسة التسويق التي يقودها نزار أبو أحمد.</span>
-  <span>nordnova.com</span>
+  <span><span lang="en">nordnova.com</span></span>
 </footer>
 
 </body>
