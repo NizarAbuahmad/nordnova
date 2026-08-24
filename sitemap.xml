@@ -2,12 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nizarabuahmad.github.io/nordnova/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nizarabuahmad.github.io/nordnova/about.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://nizarabuahmad.github.io/nordnova/ar/about.html"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://nizarabuahmad.github.io/nordnova/case-afro-baobab.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://nizarabuahmad.github.io/nordnova/case-afro-baobab.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://nizarabuahmad.github.io/nordnova/ar/case-afro-baobab.html"/>
@@ -65,12 +59,6 @@
     <loc>https://nizarabuahmad.github.io/nordnova/work.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://nizarabuahmad.github.io/nordnova/work.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://nizarabuahmad.github.io/nordnova/ar/work.html"/>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nizarabuahmad.github.io/nordnova/ar/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nizarabuahmad.github.io/nordnova/about.html"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://nizarabuahmad.github.io/nordnova/ar/about.html"/>
     <priority>0.7</priority>
   </url>
   <url>

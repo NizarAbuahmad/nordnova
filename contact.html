@@ -85,9 +85,8 @@
 <nav class="nav">
   <a class="brand" href="index.html">NORD<b>NOVA</b></a>
   <div class="nav-links">
-    <a href="services.html">What I Do</a>
     <a href="work.html">Experience</a>
-    <a href="about.html">About</a>
+    <a href="services.html">What I Do</a>
     <a href="index.html#insights">Insights</a>
     <a href="contact.html" aria-current="page">Contact</a>
   </div>
@@ -164,7 +163,7 @@
     <input type="hidden" name="_subject" value="New enquiry from nordnova.com">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
-    <button class="btn" type="submit">Send</button>
+    <button class="btn" type="submit" data-sending="Sending…">Send</button>
     <p class="toast" hidden>Thanks — I'll follow up personally.</p>
     <p class="toast toast-error" hidden>Couldn't send. Email <a href="mailto:nizar.abuahmad@gmail.com">nizar.abuahmad@gmail.com</a> instead.</p>
   </form>
@@ -179,7 +178,9 @@ document.getElementById('form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = form.querySelector('button');
   const [ok, fail] = form.querySelectorAll('.toast');
+  const label = btn.textContent;
   btn.disabled = true;
+  btn.textContent = btn.dataset.sending;
   fail.hidden = true;
   try {
     const res = await fetch(form.action.replace('/formsubmit.co/', '/formsubmit.co/ajax/'), {
@@ -198,6 +199,7 @@ document.getElementById('form').addEventListener('submit', async (e) => {
   } catch {
     fail.hidden = false;
     btn.disabled = false;
+    btn.textContent = label;
   }
 });
 </script>

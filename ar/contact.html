@@ -85,9 +85,8 @@
 <nav class="nav">
   <a class="brand" href="index.html">NORD<b>NOVA</b></a>
   <div class="nav-links">
-    <a href="services.html">ما أقدّمه</a>
     <a href="work.html">الخبرة</a>
-    <a href="about.html">من نحن</a>
+    <a href="services.html">ما أقدّمه</a>
     <a href="index.html#insights">رؤى</a>
     <a href="contact.html" aria-current="page">تواصل معنا</a>
   </div>
@@ -161,7 +160,7 @@
     <input type="hidden" name="_subject" value="طلب جديد من nordnova.com (عربي)">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
-    <button class="btn" type="submit">إرسال</button>
+    <button class="btn" type="submit" data-sending="جارٍ الإرسال…">إرسال</button>
     <p class="toast" hidden>شكراً — سأتابع معك شخصياً.</p>
     <p class="toast toast-error" hidden>تعذّر الإرسال. راسلني على <a href="mailto:nizar.abuahmad@gmail.com">nizar.abuahmad@gmail.com</a>.</p>
   </form>
@@ -182,7 +181,9 @@ document.getElementById('form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = form.querySelector('button');
   const [ok, fail] = form.querySelectorAll('.toast');
+  const label = btn.textContent;
   btn.disabled = true;
+  btn.textContent = btn.dataset.sending;
   fail.hidden = true;
   try {
     const res = await fetch(form.action.replace('/formsubmit.co/', '/formsubmit.co/ajax/'), {
@@ -199,6 +200,7 @@ document.getElementById('form').addEventListener('submit', async (e) => {
   } catch {
     fail.hidden = false;
     btn.disabled = false;
+    btn.textContent = label;
   }
 });
 </script>
