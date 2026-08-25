@@ -201,7 +201,7 @@ footer .brand { font-size: 15px; color: var(--fg-2); }
 /* Uniform chip height keeps mixed logo shapes optically level on the dark page. */
 .logo-chip {
   flex: none;
-  height: 62px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,7 +209,11 @@ footer .brand { font-size: 15px; color: var(--fg-2); }
   border-radius: 12px;
   background: var(--nova-white);
 }
-.logo-chip img { max-height: 38px; max-width: 168px; object-fit: contain; display: block; }
+/* Normalise by optical area, not height. Capping every logo at the same height
+   let a wide wordmark occupy 168px while a square crest got 38px - four times
+   the presence for the same brand. Raising the height cap and easing the width
+   cap brings the two shapes closer together. */
+.logo-chip img { max-height: 46px; max-width: 150px; object-fit: contain; display: block; }
 /* Wordmark fallback for clients with no logo file yet. */
 .logo-chip.wordmark {
   background: var(--surface-card);
